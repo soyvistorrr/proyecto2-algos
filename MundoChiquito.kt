@@ -27,13 +27,7 @@ fun main() {
 
     for (i in 0 until n) {
         for (j in i + 1 until n) {
-            var coincidencias = 0
-
-            if (cartas[i].nivel == cartas[j].nivel) coincidencias++
-            if (cartas[i].poder == cartas[j].poder) coincidencias++
-            if (cartas[i].atributo == cartas[j].atributo) coincidencias++
-
-            if (coincidencias == 1) {
+            if (cartas[i].compartenCaracteristica(cartas[i],cartas[j])) {
                 grafo[i].add(j)
                 grafo[j].add(i)
             }
@@ -44,7 +38,7 @@ fun main() {
         for (j in grafo[i]) {
             for (k in grafo[j]) {
                 if (i < k) {
-                    println("${cartas[i].nombre} ${cartas[j].nombre} ${cartas[k].nombre}")
+                    println("${cartas[i].obtenerNombre()} ${cartas[j].obtenerNombre()} ${cartas[k].obtenerNombre()}")
                 }
             }
         }

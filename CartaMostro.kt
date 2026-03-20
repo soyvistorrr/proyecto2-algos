@@ -1,16 +1,17 @@
-class CartaMostro(
-    val nombre: String,
-    val nivel: Int,
-    val atributo: String,
-    val poder: Int
-) {
-    init {
+class CartaMostro (
+    private val nombre: String,
+    private val nivel: Int,
+    private val atributo: String,
+    private val poder: Int
+)
+
+{   init {
         require(nivel in 1..12) { 
             "Error: El nivel de la carta '$nombre' debe estar entre 1 y 12. Valor recibido: $nivel" 
         }
         
         require(poder % 50 == 0) { 
-            "Error: El poder de la carta '$nombre' debe ser múltiplo de 50. Valor recibido: $poder" 
+          "Error: El poder de la carta '$nombre' debe ser múltiplo de 50. Valor recibido: $poder" 
         }
         
         val atributosValidos = setOf("AGUA", "FUEGO", "VIENTO", "TIERRA", "LUZ", "OSCURIDAD", "DIVINO")
@@ -18,4 +19,21 @@ class CartaMostro(
             "Error: El atributo '$atributo' de la carta '$nombre' no es válido." 
         }
     }
+
+
+fun compartenCaracteristica(carta1: CartaMostro, carta2: CartaMostro): Boolean {
+    var coincidencias = 0
+    if (carta1.nivel == carta2.nivel) coincidencias++
+    if (carta1.poder == carta2.poder) coincidencias++
+    if (carta1.atributo == carta2.atributo) coincidencias++
+
+    if (coincidencias == 1) {
+        return true
+    }
+
+    return false
+}
+
+fun obtenerNombre() = nombre
+
 }
