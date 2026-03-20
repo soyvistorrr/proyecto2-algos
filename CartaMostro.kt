@@ -20,12 +20,11 @@ class CartaMostro (
         }
     }
 
-
-fun compartenCaracteristica(carta1: CartaMostro, carta2: CartaMostro): Boolean {
+fun compartenCaracteristica(otra: CartaMostro): Boolean {
     var coincidencias = 0
-    if (carta1.nivel == carta2.nivel) coincidencias++
-    if (carta1.poder == carta2.poder) coincidencias++
-    if (carta1.atributo == carta2.atributo) coincidencias++
+    if (this.nivel == otra.nivel) coincidencias++
+    if (this.poder == otra.poder) coincidencias++
+    if (this.atributo == otra.atributo) coincidencias++
 
     if (coincidencias == 1) {
         return true
@@ -34,6 +33,8 @@ fun compartenCaracteristica(carta1: CartaMostro, carta2: CartaMostro): Boolean {
     return false
 }
 
-fun obtenerNombre() = nombre
+fun obtenerNombre(): String {
+    return nombre
 
+}
 }

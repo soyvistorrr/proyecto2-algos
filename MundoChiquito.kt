@@ -27,7 +27,7 @@ fun main() {
 
     for (i in 0 until n) {
         for (j in i + 1 until n) {
-            if (cartas[i].compartenCaracteristica(cartas[i],cartas[j])) {
+            if (cartas[i].compartenCaracteristica(cartas[j])) {
                 grafo[i].add(j)
                 grafo[j].add(i)
             }
